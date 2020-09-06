@@ -5,6 +5,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 /// 气泡组件
+///
+/// @author Peter
+///
+/// Create on 2020/09/01
 class BubbleWidget extends StatelessWidget {
   final Widget child;
 
@@ -42,18 +46,18 @@ class BubbleWidget extends StatelessWidget {
 
   const BubbleWidget(
       {Key key,
-      @required this.child,
-      this.padding,
-      this.color = Colors.transparent,
-      this.arrowWidth = 8.0,
-      this.arrowHeight = 5.0,
-      this.borderRadius = 10.0,
-      this.direction = ArrowDirection.bottom,
-      this.positionRatio = 0.5,
-      this.style = BubbleStyle.fill,
-      this.strokeColor = Colors.transparent,
-      this.strokeWidth = 0.5,
-      this.elevation})
+        @required this.child,
+        this.padding,
+        this.color = Colors.transparent,
+        this.arrowWidth = 8.0,
+        this.arrowHeight = 5.0,
+        this.borderRadius = 10.0,
+        this.direction = ArrowDirection.bottom,
+        this.positionRatio = 0.5,
+        this.style = BubbleStyle.fill,
+        this.strokeColor = Colors.transparent,
+        this.strokeWidth = 0.5,
+        this.elevation})
       : super(key: key);
 
   get _arrowMargin {
@@ -118,14 +122,14 @@ class BubbleShape extends ShapeBorder {
   final double positionRatio;
 
   BubbleShape(
-      {this.style,
-      this.strokeColor,
-      this.strokeWidth,
-      this.direction,
-      this.positionRatio,
-      this.arrowHeight,
-      this.arrowWidth,
-      this.borderRadius})
+      {this.style = BubbleStyle.fill,
+        this.strokeColor = Colors.transparent,
+        this.strokeWidth = 0.5,
+        this.direction = ArrowDirection.bottom,
+        this.positionRatio = 0.5,
+        this.arrowHeight = 5.0,
+        this.arrowWidth = 8.0,
+        this.borderRadius = 10.0})
       : assert(positionRatio >= 0 && positionRatio <= 1, '气泡尖角位置系数必须是0-1范围'),
         assert(direction != null, '气泡尖角方向不能为空');
 
@@ -259,7 +263,7 @@ class BubbleShape extends ShapeBorder {
     var yArrowCenter = positionRatioFit * h;
     path
       ..moveTo(xOffset, yOffSet + borderRadiusFit)
-      // 添加左上圆角
+    // 添加左上圆角
       ..arcTo(Rect.fromCircle(center: Offset(xOffset + borderRadiusFit, yOffSet + borderRadiusFit), radius: borderRadiusFit), pi,
           0.5 * pi, false);
     // 添加上边

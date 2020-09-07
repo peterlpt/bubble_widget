@@ -54,7 +54,7 @@ class BubbleWidgetExample extends StatelessWidget {
 
 #### Figure legends
 
-<img src="resources/bubble_widget_properties.png" alt="bubble_widget_properties" style="zoom: 30%;" />
+<img src="resources/bubble_widget_properties.png" alt="bubble_widget_properties" style="zoom: 25%;" />
 
 #### NOTE:
 

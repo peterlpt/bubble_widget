@@ -42,6 +42,8 @@ class BubbleWidget extends StatelessWidget {
   /// 气泡尖角相对位置系数，0.0~1.0，左上角起算
   final double positionRatio;
 
+  /// @see [Material]的[elevation]定义，z轴高度 </br>
+  /// The z-coordinate at which to place this material relative to its parent.
   final double elevation;
 
   const BubbleWidget(

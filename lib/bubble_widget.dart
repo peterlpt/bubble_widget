@@ -48,18 +48,18 @@ class BubbleWidget extends StatelessWidget {
 
   const BubbleWidget(
       {Key key,
-        @required this.child,
-        this.padding,
-        this.color = Colors.transparent,
-        this.arrowWidth = 8.0,
-        this.arrowHeight = 5.0,
-        this.borderRadius = 10.0,
-        this.direction = ArrowDirection.bottom,
-        this.positionRatio = 0.5,
-        this.style = BubbleStyle.fill,
-        this.strokeColor = Colors.transparent,
-        this.strokeWidth = 0.5,
-        this.elevation})
+      @required this.child,
+      this.padding,
+      this.color = Colors.transparent,
+      this.arrowWidth = 8.0,
+      this.arrowHeight = 5.0,
+      this.borderRadius = 10.0,
+      this.direction = ArrowDirection.bottom,
+      this.positionRatio = 0.5,
+      this.style = BubbleStyle.fill,
+      this.strokeColor = Colors.transparent,
+      this.strokeWidth = 0.5,
+      this.elevation})
       : super(key: key);
 
   get _arrowMargin {
@@ -86,7 +86,9 @@ class BubbleWidget extends StatelessWidget {
     return Material(
         color: color,
         // 透明填充背景时，无需投影
-        shadowColor: color == Colors.transparent ? Colors.transparent : const Color(0xFF000000),
+        shadowColor: color == Colors.transparent
+            ? Colors.transparent
+            : const Color(0xFF000000),
         elevation: elevation ?? (color == Colors.transparent ? 0 : 5),
         shape: BubbleShape(
             style: style,
@@ -125,13 +127,13 @@ class BubbleShape extends ShapeBorder {
 
   BubbleShape(
       {this.style = BubbleStyle.fill,
-        this.strokeColor = Colors.transparent,
-        this.strokeWidth = 0.5,
-        this.direction = ArrowDirection.bottom,
-        this.positionRatio = 0.5,
-        this.arrowHeight = 5.0,
-        this.arrowWidth = 8.0,
-        this.borderRadius = 10.0})
+      this.strokeColor = Colors.transparent,
+      this.strokeWidth = 0.5,
+      this.direction = ArrowDirection.bottom,
+      this.positionRatio = 0.5,
+      this.arrowHeight = 5.0,
+      this.arrowWidth = 8.0,
+      this.borderRadius = 10.0})
       : assert(positionRatio >= 0 && positionRatio <= 1, '气泡尖角位置系数必须是0-1范围'),
         assert(direction != null, '气泡尖角方向不能为空');
 
@@ -196,10 +198,12 @@ class BubbleShape extends ShapeBorder {
     var maxPositionRatio;
     if (direction == ArrowDirection.left || direction == ArrowDirection.right) {
       minPositionRatio = (borderRadiusFit + 0.5 * arrowWidthFit) / rect.height;
-      maxPositionRatio = (rect.height - borderRadiusFit - 0.5 * arrowWidthFit) / rect.height;
+      maxPositionRatio =
+          (rect.height - borderRadiusFit - 0.5 * arrowWidthFit) / rect.height;
     } else {
       minPositionRatio = (borderRadiusFit + 0.5 * arrowWidthFit) / rect.width;
-      maxPositionRatio = (rect.width - borderRadiusFit - 0.5 * arrowWidthFit) / rect.width;
+      maxPositionRatio =
+          (rect.width - borderRadiusFit - 0.5 * arrowWidthFit) / rect.width;
     }
     if (positionRatio < minPositionRatio) {
       return minPositionRatio;
@@ -265,9 +269,15 @@ class BubbleShape extends ShapeBorder {
     var yArrowCenter = positionRatioFit * h;
     path
       ..moveTo(xOffset, yOffSet + borderRadiusFit)
-    // 添加左上圆角
-      ..arcTo(Rect.fromCircle(center: Offset(xOffset + borderRadiusFit, yOffSet + borderRadiusFit), radius: borderRadiusFit), pi,
-          0.5 * pi, false);
+      // 添加左上圆角
+      ..arcTo(
+          Rect.fromCircle(
+              center:
+                  Offset(xOffset + borderRadiusFit, yOffSet + borderRadiusFit),
+              radius: borderRadiusFit),
+          pi,
+          0.5 * pi,
+          false);
     // 添加上边
     if (direction == ArrowDirection.top) {
       path
@@ -278,7 +288,10 @@ class BubbleShape extends ShapeBorder {
     path.lineTo(w - xOffsetEnd - borderRadiusFit, yOffSet);
     // 添加右上角
     path.arcTo(
-        Rect.fromCircle(center: Offset(w - xOffsetEnd - borderRadiusFit, yOffSet + borderRadiusFit), radius: borderRadiusFit),
+        Rect.fromCircle(
+            center: Offset(
+                w - xOffsetEnd - borderRadiusFit, yOffSet + borderRadiusFit),
+            radius: borderRadiusFit),
         -0.5 * pi,
         0.5 * pi,
         false);
@@ -293,7 +306,9 @@ class BubbleShape extends ShapeBorder {
     // 添加右下角
     path.arcTo(
         Rect.fromCircle(
-            center: Offset(w - xOffsetEnd - borderRadiusFit, h - yOffSetEnd - borderRadiusFit), radius: borderRadiusFit),
+            center: Offset(w - xOffsetEnd - borderRadiusFit,
+                h - yOffSetEnd - borderRadiusFit),
+            radius: borderRadiusFit),
         0,
         0.5 * pi,
         false);
@@ -307,7 +322,10 @@ class BubbleShape extends ShapeBorder {
     path.lineTo(xOffset + borderRadiusFit, h - yOffSetEnd);
     // 添加左下角
     path.arcTo(
-        Rect.fromCircle(center: Offset(xOffset + borderRadiusFit, h - yOffSetEnd - borderRadiusFit), radius: borderRadiusFit),
+        Rect.fromCircle(
+            center: Offset(
+                xOffset + borderRadiusFit, h - yOffSetEnd - borderRadiusFit),
+            radius: borderRadiusFit),
         0.5 * pi,
         0.5 * pi,
         false);

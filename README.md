@@ -12,7 +12,7 @@ Supports common bubble style parameters: stroke, fill, arrow direction, size and
 
 ```yaml
 dependencies:
-  bubble_widget: 0.0.1
+  bubble_widget: ^0.0.2
 ```
 
 #### Usage
@@ -54,7 +54,7 @@ class BubbleWidgetExample extends StatelessWidget {
 
 #### Figure legends
 
-<img src="resources/bubble_widget_properties.png" alt="bubble_widget_properties" style="zoom: 25%;" />
+<img src="https://raw.githubusercontent.com/peterlpt/bubble_widget/master/resources/bubble_widget_properties.png" alt="bubble_widget_properties" style="zoom: 25%;" />
 
 #### NOTE:
 

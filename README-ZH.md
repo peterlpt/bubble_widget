@@ -1,4 +1,4 @@
-文档语言: [English](README.md) | [中文简体](README-ZH.md)
+文档语言: [English](https://raw.githubusercontent.com/peterlpt/bubble_widget/master/README.md) | [中文简体](https://raw.githubusercontent.com/peterlpt/bubble_widget/master/README-ZH.md)
 
 # bubble_widget
 
@@ -12,7 +12,7 @@
 
 ```yaml
 dependencies:
-  bubble_widget: 0.0.1
+  bubble_widget: ^0.0.2
 ```
 
 #### 使用示例
@@ -54,7 +54,7 @@ class BubbleWidgetExample extends StatelessWidget {
 
 #### 参数图例
 
-<img src="resources/bubble_widget_properties.png" alt="bubble_widget_properties" style="zoom: 25%;" />
+<img src="https://raw.githubusercontent.com/peterlpt/bubble_widget/master/resources/bubble_widget_properties.png" alt="bubble_widget_properties" style="zoom: 25%;" />
 
 #### 其他说明
 
